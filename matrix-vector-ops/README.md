@@ -2,8 +2,6 @@
 
 This module contains implementations of matrix and vector operations for the Linear Algebra Library project.
 
-## GitHub Username: JalalWahdat
-
 ## Objectives
 
 Implement common matrix and vector operations, including:
@@ -13,8 +11,13 @@ Implement common matrix and vector operations, including:
 * Matrix addition
 * Matrix subtraction
 * Matrix multiplication
+* Hadamard product (element-wise multiplication)
 * Scalar multiplication
 * Matrix transpose
+* Matrix inverse
+* Matrix determinant
+* Diagonal extraction (get diagonal elements)
+* Trace (sum of diagonal elements)
 * Identity matrix generation
 
 ### Vector Operations
@@ -22,9 +25,11 @@ Implement common matrix and vector operations, including:
 * Vector addition
 * Vector subtraction
 * Scalar multiplication
-* Dot product
+* Dot product (inner product)
+* Outer product
+* Cross product
 * Vector magnitude (norm)
-* Unit vector calculation
+* Unit vector calculation (vector normalization)
 
 ## Planned Files
 
