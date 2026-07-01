@@ -93,46 +93,6 @@ def scalar_multiply_matrix(matrix, scalar):
     print(f"= {result}")
     return result
 
-# ==========================================
-# MATRIX OPERATIONS WITH STEPS
-# ==========================================
-
-def matrix_add(A, B):
-    # Zip rows, then zip elements inside those rows
-    result = [[a + b for a, b in zip(rowA, rowB)] for rowA, rowB in zip(A, B)]
-    step = [[f"({a}+{b})" for a, b in zip(rowA, rowB)] for rowA, rowB in zip(A, B)]
-    
-    print("\nMATRIX ADDITION")
-    print("A + B")
-    print(f"= {A} +\n  {B}")
-    print(f"= {step}")
-    print(f"= {result}")
-    return result
-
-
-def matrix_subtract(A, B):
-    result = [[a - b for a, b in zip(rowA, rowB)] for rowA, rowB in zip(A, B)]
-    step = [[f"({a}-{b})" for a, b in zip(rowA, rowB)] for rowA, rowB in zip(A, B)]
-    
-    print("\nMATRIX SUBTRACTION")
-    print("A - B")
-    print(f"= {A} -\n  {B}")
-    print(f"= {step}")
-    print(f"= {result}")
-    return result
-
-
-def scalar_multiply_matrix(matrix, scalar):
-    result = [[scalar * val for val in row] for row in matrix]
-    step = [[f"({scalar}×{val})" for val in row] for row in matrix]
-    
-    print("\nSCALAR MULTIPLICATION (MATRIX)")
-    print(f"{scalar} * A")
-    print(f"= {scalar} * {matrix}")
-    print(f"= {step}")
-    print(f"= {result}")
-    return result
-
 
 def hadamard_product(A, B):
     # Element-wise multiplication using the same zip structure as addition
