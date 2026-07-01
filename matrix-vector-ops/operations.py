@@ -120,6 +120,33 @@ def matrix_transpose(matrix):
     return result
 
 
+def matrix_diagonal(matrix):
+    # Extracts elements where row index equals column index (i == j)
+    result = [matrix[i][i] for i in range(len(matrix))]
+    step = [f"A[{i}][{i}]" for i in range(len(matrix))]
+    
+    print("\nDIAGONAL EXTRACTION")
+    print("diag(A)")
+    print(f"= Extracting main diagonal from {matrix}")
+    print(f"= {step}")
+    print(f"= {result}")
+    return result
+
+
+def matrix_trace(matrix):
+    # Reuses the diagonal extraction logic, then sums the elements
+    diag_elements = [matrix[i][i] for i in range(len(matrix))]
+    result = sum(diag_elements)
+    step = " + ".join(f"{val}" for val in diag_elements)
+    
+    print("\nMATRIX TRACE")
+    print("tr(A)")
+    print(f"= Sum of diagonal elements from {matrix}")
+    print(f"= {step}")
+    print(f"= {result}")
+    return result
+
+
 # ==========================================
 # EXAMPLE EXECUTION
 # ==========================================
@@ -143,3 +170,5 @@ matrix_subtract(A, B)
 scalar_multiply_matrix(A, k)
 hadamard_product(A, B)
 matrix_transpose(A)
+matrix_diagonal(A)
+matrix_trace(A)
