@@ -93,6 +93,72 @@ def scalar_multiply_matrix(matrix, scalar):
     print(f"= {result}")
     return result
 
+# ==========================================
+# MATRIX OPERATIONS WITH STEPS
+# ==========================================
+
+def matrix_add(A, B):
+    # Zip rows, then zip elements inside those rows
+    result = [[a + b for a, b in zip(rowA, rowB)] for rowA, rowB in zip(A, B)]
+    step = [[f"({a}+{b})" for a, b in zip(rowA, rowB)] for rowA, rowB in zip(A, B)]
+    
+    print("\nMATRIX ADDITION")
+    print("A + B")
+    print(f"= {A} +\n  {B}")
+    print(f"= {step}")
+    print(f"= {result}")
+    return result
+
+
+def matrix_subtract(A, B):
+    result = [[a - b for a, b in zip(rowA, rowB)] for rowA, rowB in zip(A, B)]
+    step = [[f"({a}-{b})" for a, b in zip(rowA, rowB)] for rowA, rowB in zip(A, B)]
+    
+    print("\nMATRIX SUBTRACTION")
+    print("A - B")
+    print(f"= {A} -\n  {B}")
+    print(f"= {step}")
+    print(f"= {result}")
+    return result
+
+
+def scalar_multiply_matrix(matrix, scalar):
+    result = [[scalar * val for val in row] for row in matrix]
+    step = [[f"({scalar}×{val})" for val in row] for row in matrix]
+    
+    print("\nSCALAR MULTIPLICATION (MATRIX)")
+    print(f"{scalar} * A")
+    print(f"= {scalar} * {matrix}")
+    print(f"= {step}")
+    print(f"= {result}")
+    return result
+
+
+def hadamard_product(A, B):
+    # Element-wise multiplication using the same zip structure as addition
+    result = [[a * b for a, b in zip(rowA, rowB)] for rowA, rowB in zip(A, B)]
+    step = [[f"({a}×{b})" for a, b in zip(rowA, rowB)] for rowA, rowB in zip(A, B)]
+    
+    print("\nHADAMARD PRODUCT (ELEMENT-WISE MULTIPLICATION)")
+    print("A ∘ B")
+    print(f"= {A} ∘\n  {B}")
+    print(f"= {step}")
+    print(f"= {result}")
+    return result
+
+
+def matrix_transpose(matrix):
+    # Uses zip(*matrix) to unpack rows and group elements by their column index
+    result = [list(col) for col in zip(*matrix)]
+    step = [[f"row_to_col({val})" for val in row] for row in matrix] # Maps how original elements shift
+    
+    print("\nMATRIX TRANSPOSE")
+    print("Aᵀ")
+    print(f"= {matrix}ᵀ")
+    print(f"= Transposing rows to columns...")
+    print(f"= {result}")
+    return result
+
 
 # ==========================================
 # EXAMPLE EXECUTION
@@ -115,3 +181,5 @@ dot_product(v1, v2)
 matrix_add(A, B)
 matrix_subtract(A, B)
 scalar_multiply_matrix(A, k)
+hadamard_product(A, B)
+matrix_transpose(A)
