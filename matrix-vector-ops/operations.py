@@ -147,6 +147,21 @@ def matrix_trace(matrix):
     return result
 
 
+def matrix_multiply(A, B):
+    # zip(*B) transposes B to cleanly pair its columns with A's rows
+    result = [[sum(a * b for a, b in zip(rowA, colB)) for colB in zip(*B)] for rowA in A]
+    
+    # Formats the exact string math steps for each cell: (a1*b1 + a2*b2)
+    step = [[ " + ".join(f"({a}×{b})" for a, b in zip(rowA, colB)) for colB in zip(*B)] for rowA in A]
+    
+    print("\nMATRIX MULTIPLICATION")
+    print("A × B")
+    print(f"= {A} ×\n  {B}")
+    print(f"= {step}")
+    print(f"= {result}")
+    return result
+
+
 # ==========================================
 # EXAMPLE EXECUTION
 # ==========================================
@@ -172,3 +187,4 @@ hadamard_product(A, B)
 matrix_transpose(A)
 matrix_diagonal(A)
 matrix_trace(A)
+matrix_multiply(A, B)
