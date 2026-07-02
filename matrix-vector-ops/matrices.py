@@ -118,6 +118,50 @@ def identity_matrix(n):
     return result
 
 
+def matrix_determinant(matrix):
+    # Standard formula for 2x2 matrix: det(A) = ad - bc
+    a, b = matrix[0][0], matrix[0][1]
+    c, d = matrix[1][0], matrix[1][1]
+    
+    result = (a * d) - (b * c)
+    step = f"({a}×{d}) - ({b}×{c})"
+    
+    print("\nMATRIX DETERMINANT (2x2)")
+    print("det(A)")
+    print(f"= Calculating determinant of {matrix}")
+    print(f"= {step}")
+    print(f"= {result}")
+    return result
+
+
+def matrix_inverse(matrix):
+    # Standard formula for 2x2 matrix inverse: (1/det) * [[d, -b], [-c, a]]
+    a, b = matrix[0][0], matrix[0][1]
+    c, d = matrix[1][0], matrix[1][1]
+    
+    det = (a * d) - (b * c)
+    
+    print("\nMATRIX INVERSE (2x2)")
+    print("A⁻¹")
+    print(f"= Finding inverse of {matrix}")
+    
+    if det == 0:
+        print("= Error: Determinant is 0. Matrix is singular and cannot be inverted.")
+        return None
+        
+    # Step 1: Create adjugate matrix configurations
+    adjugate = [[d, -b], [-c, a]]
+    # Step 2: Multiply adjugate by 1/det scalar
+    result = [[val / det for val in row] for row in adjugate]
+    step = [[f"(1/{det} × {val})" for val in row] for row in adjugate]
+    
+    print(f"= det(A) is {det}")
+    print(f"= 1/{det} * {adjugate}")
+    print(f"= {step}")
+    print(f"= {result}")
+    return result
+
+
 # ==========================================
 # EXAMPLE EXECUTION
 # ==========================================
@@ -137,3 +181,5 @@ matrix_diagonal(A)
 matrix_trace(A)
 matrix_multiply(A, B)
 identity_matrix(n)
+matrix_determinant(A)
+matrix_inverse(A)
