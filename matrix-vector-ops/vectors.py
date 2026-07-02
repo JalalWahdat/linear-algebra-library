@@ -53,6 +53,19 @@ def dot_product(v1, v2):
     return result
 
 
+def outer_product(v1, v2):
+    # Computes the matrix resulting from multiplying each element of v1 by all elements of v2
+    result = [[a * b for b in v2] for a in v1]
+    step = [[f"({a}×{b})" for b in v2] for a in v1]
+    
+    print("\nOUTER PRODUCT")
+    print("V1 ⊗ V2")
+    print(f"= {v1} ⊗ {v2}")
+    print(f"= {step}")
+    print(f"= {result}")
+    return result
+
+
 # ==========================================
 # EXAMPLE EXECUTION
 # ==========================================
@@ -66,3 +79,4 @@ vector_add(v1, v2)
 vector_subtract(v1, v2)
 scalar_multiply(v1, k)
 dot_product(v1, v2)
+outer_product(v1, v2)
