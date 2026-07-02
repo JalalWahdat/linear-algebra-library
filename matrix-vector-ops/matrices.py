@@ -107,6 +107,17 @@ def matrix_multiply(A, B):
     return result
 
 
+def identity_matrix(n):
+    # Creates an n x n identity matrix where cells are 1 if row equals col, else 0
+    result = [[1 if i == j else 0 for j in range(n)] for i in range(n)]
+    
+    print("\nIDENTITY MATRIX GENERATION")
+    print(f"Iₙ where n = {n}")
+    print(f"= Generating a {n}x{n} identity matrix...")
+    print(f"= {result}")
+    return result
+
+
 # ==========================================
 # EXAMPLE EXECUTION
 # ==========================================
@@ -114,6 +125,7 @@ def matrix_multiply(A, B):
 A = [[1, 2], [3, 4]]
 B = [[5, 6], [7, 8]]
 k = 3
+n = 2
 
 # Run Matrix Tests
 matrix_add(A, B)
@@ -124,3 +136,4 @@ matrix_transpose(A)
 matrix_diagonal(A)
 matrix_trace(A)
 matrix_multiply(A, B)
+identity_matrix(n)
